@@ -14,12 +14,15 @@ const Grid = ({ images }) => {
 };
 
 const gridStyle = {
-  display: "grid",
-  gridTemplateColumns: "repeat(auto-fit, minmax(275px, 1fr))",
-  // gridAutoRows: "minmax(min-content, max-content)",
-  gridAutoRows: "min-content",
-  gridGap: "15px",
-  gridAutoFlow: "dense"
+  // display: "grid",
+  // gridTemplateColumns: "repeat(auto-fit, minmax(275px, 1fr))",
+  // // gridAutoRows: "minmax(min-content, max-content)",
+  // gridAutoRows: "auto",
+  // gridGap: "15px",
+  // gridAutoFlow: "dense"
+  columnCount: "3",
+  columnGap: "10px",
+  height: "auto"
 };
 
 export default Grid;

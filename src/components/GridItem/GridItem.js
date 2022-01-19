@@ -17,7 +17,6 @@ const GridItem = ({ image }) => {
   };
 
   const handleCopy = () => {
-    console.log(image.url);
     navigator.clipboard.writeText(image.url);
     setCopy(true);
     setTimeout(() => {
