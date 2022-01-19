@@ -8,9 +8,22 @@
   justify-content: center;
 }
 
+.navbar {
+  margin-left: 40%;
+  width: 57%;
+}
+
 .banner {
+  display: flex;
+  justify-content: space-between;
   font-size: 30px;
   font-weight: 600;
   letter-spacing: 1px;
   margin-bottom: 30px;
+  align-items: center;
+}
+
+#github {
+  font-size: 1.6rem;
+  color: #000;
 }
