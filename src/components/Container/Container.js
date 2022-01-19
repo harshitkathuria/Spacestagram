@@ -28,6 +28,7 @@ const Container = () => {
             id="github"
             target={"_blank"}
             href="https://github.com/harshitkathuria/Spacestagram"
+            rel="noreferrer"
           >
             <FaGithub />
           </a>
