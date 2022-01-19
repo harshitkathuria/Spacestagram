@@ -6,7 +6,8 @@ const ACTION = {
   SET_LOADING: "SET_LOADING",
   GET_IMAGES: "GET_IMAGES",
   LIKE_IMAGE: "LIKE_IMAGE",
-  UNLIKE_IMAGE: "UNLIKE_IMAGE"
+  UNLIKE_IMAGE: "UNLIKE_IMAGE",
+  LOAD_LIKED: "LOAD_LIKED"
 };
 
 const BASE_URL = `https://api.nasa.gov/planetary/apod?start_date=2021-09-01&end_date=2021-09-15&api_key=${process.env.REACT_APP_API_KEY}`;
@@ -15,7 +16,7 @@ export default props => {
   const initialState = {
     loading: false,
     images: [],
-    liked: []
+    liked: null
   };
   const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -31,6 +32,13 @@ export default props => {
         return {
           ...state,
           liked: state.liked.filter(image => image !== action.payload)
+        };
+      case ACTION.LOAD_LIKED:
+        return {
+          ...state,
+          liked: localStorage.getItem("liked")
+            ? JSON.parse(localStorage.getItem("liked"))
+            : []
         };
       default:
         return state;
@@ -68,6 +76,13 @@ export default props => {
     });
   };
 
+  // Load Liked Images
+  const loadLiked = () => {
+    dispatch({
+      type: ACTION.LOAD_LIKED
+    });
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -77,7 +92,8 @@ export default props => {
         setLoading,
         getImages,
         likeImage,
-        unlikeImage
+        unlikeImage,
+        loadLiked
       }}
     >
       {props.children}

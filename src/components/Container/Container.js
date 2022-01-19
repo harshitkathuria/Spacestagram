@@ -6,11 +6,17 @@ import Grid from "../Grid";
 
 const Container = () => {
   const context = useContext(AppContext);
-  const { loading, images, getImages } = context;
+  const { loading, images, getImages, liked, loadLiked } = context;
 
   useEffect(() => {
+    loadLiked();
     getImages();
   }, []);
+
+  useEffect(() => {
+    console.log("liked: " + liked);
+    if (liked !== null) localStorage.setItem("liked", JSON.stringify(liked));
+  }, [liked]);
 
   return (
     <div className="container">
