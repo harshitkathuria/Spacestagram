@@ -27,3 +27,20 @@
   font-size: 1.6rem;
   color: #000;
 }
+
+@media screen and (max-width: 500px) {
+  .navbar {
+    margin: 0;
+  }
+  .navbar .banner {
+    display: flex;
+    width: 100%;
+    flex-grow: 1;
+    justify-content: space-between;
+  }
+
+  .image-grid {
+    column-count: 1 !important;
+    margin: auto 30px;
+  }
+}

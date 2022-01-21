@@ -15,7 +15,6 @@ const Container = () => {
   }, []);
 
   useEffect(() => {
-    console.log("liked: " + liked);
     if (liked !== null) localStorage.setItem("liked", JSON.stringify(liked));
   }, [liked]);
 
@@ -24,16 +23,17 @@ const Container = () => {
       <nav className="navbar">
         <div className="banner">
           <span>SPACESTAGRAM</span>
-          <a
-            id="github"
-            target={"_blank"}
-            href="https://github.com/harshitkathuria/Spacestagram"
-            rel="noreferrer"
-          >
-            <FaGithub />
-          </a>
+          <div id="social-links">
+            <a
+              id="github"
+              target={"_blank"}
+              href="https://github.com/harshitkathuria/Spacestagram"
+              rel="noreferrer"
+            >
+              <FaGithub />
+            </a>
+          </div>
         </div>
-        <div id="social-links"></div>
       </nav>
       {loading ? <Loader /> : <Grid images={images} />}
     </div>

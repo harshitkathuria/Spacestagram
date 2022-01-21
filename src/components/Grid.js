@@ -3,7 +3,7 @@ import GridItem from "./GridItem/GridItem";
 
 const Grid = ({ images }) => {
   return (
-    <div style={gridStyle}>
+    <div className="image-grid" style={gridStyle}>
       {images.map((image, index) => {
         return image.media_type === "image" ? (
           <GridItem image={image} key={index} />
